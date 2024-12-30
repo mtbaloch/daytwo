@@ -75,3 +75,6 @@ Here are the endpoints for testing the API:
 
 ---
 
+### 📢 **Follow Me**  
+Follow for updates, tips, and more:  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/mtbaloch/) 
