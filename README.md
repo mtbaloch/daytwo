@@ -60,7 +60,7 @@ Edit the `.env` file to configure your environment variables with your own secre
 Start the FastAPI server using:  
 
 ```bash
-fatapi dev app/
+fastapi dev app/
 ```  
 
 This will start the server, and you can access the API locally.  
