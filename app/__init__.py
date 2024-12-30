@@ -45,10 +45,10 @@ async def create_new_student(student_data: Student, session: Session = Depends(d
         data = student_data
         
         statement = select(Student).where(Student.email == data.email)
-        isEmailAlreadyExist = session.exec(statement)
+        isEmailAlreadyExist = session.exec(statement).first()
         
         if isEmailAlreadyExist:
-            raise HTTPException(status_code=401, detail="user with this email already exist.")
+            raise HTTPException(status_code=409, detail="user with this email already exist.")
         # here, we add our data into session
         session.add(data)
         # commit the data to the database table
