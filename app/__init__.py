@@ -6,6 +6,11 @@ from app.db import init_db, db_session
 from app.models import Student, CreateStudent
 from app.config import settings
 
+from starlette.middleware.cors import CORSMiddleware
+
+
+
+
 @asynccontextmanager
 async def life_span(app: FastAPI):
     print("Lifespan start")
@@ -24,6 +29,23 @@ app = FastAPI(
     description= settings.DESCRIPTION,
     version=settings.VERSION,
     lifespan=life_span
+)
+
+# Set CORs policy
+# first define the origin list
+origins = [
+    "http://localhost:3000",
+    "http://localhost:3001",
+]
+
+
+# here need to initialize add corsmidleware in our app
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins = origins,
+    allow_credentials=True,
+    allow_methods=["*"], #get, put , post, patch, head, option, delete
+    allow_headers=["*"],
 )
 
 # Root Get Route to check whether our api is up or down.
